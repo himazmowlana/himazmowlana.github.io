@@ -3,7 +3,7 @@
 <title>Project</title>
 <link rel="short icon" type="image/png" href="../Images/favicon.png">
 <meta name="viewport" content="width =device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../Css/Booking%20Style.css">
+<link rel="stylesheet" href="../Css/Cart%20Style.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -28,7 +28,7 @@ body {
 </section>
 <div class="payment-address">
 <div class="left-box">
-<form action="booking.php" method="post">
+<form action="cart.php" method="post">
 <h2>Billing Address</h2>
             <label>Full Name</label>
             <input type="text" name="full_name" placeholder="John Martin"> <br>
@@ -41,13 +41,14 @@ body {
             <label>State</label> 
             <input type="text" name="state" placeholder="Western"> 
             Zip : <input type="text" name="zip" placeholder="02031"> <br>
-            <label>Trainer Name</label> 
-            <input type="text" name="trainer_name" placeholder="Will Holand"> <br>
-            <label>My Class</label> <select name="classes">
-                <option value="ZB"> Zumba </option>
-                <option value="PT"> Personal Training </option>
-                <option value="CF"> Crossfit </option>
-                <option value="MS"> Membership </option>
+            <label>Supplement Name</label> 
+            <input type="text" name="supplement_name" placeholder="Carnivore Mass"> <br>
+            <label>Supplement Catagory</label> <select name="supplements">
+                <option value="MG"> Mass Gainer </option>
+                <option value="PT"> Protein </option>
+                <option value="PW"> Pre-Workout </option>
+                <option value="PSW"> Post-Workout </option>
+                <option value="CT"> Creatine </option>
             </select>
             <br>            
 </div>
@@ -74,9 +75,9 @@ body {
 </div>  
       <input type="submit" name="submit"></button> 
 </div>   
-    </form>  
-    <a href="../classes.html">
-                    <button>Back</button></a>                                           
+    </form>
+    <a href="../supplements.html">
+                    <button>Back</button></a>
 </body>
 </html>
 
@@ -92,8 +93,8 @@ body {
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
         
-        $sql = "INSERT INTO booking(FullName, Email, Address, City, State, Zip, TrainerName, MyClass, NameonCard, CardNumber, ExpMonth, ExpYear, Cvv)
-        VALUES ('".$_POST['full_name']."', '".$_POST['email']."', '".$_POST['address']."', '".$_POST['city']."', '".$_POST['state']."', '".$_POST['zip']."', '".$_POST['trainer_name']."', '".$_POST['classes']."', '".$_POST['name_on_card']."', '".$_POST['card_number']."', '".$_POST['exp_month']."', '".$_POST['exp_year']."', '".$_POST['cvv']."')";
+        $sql = "INSERT INTO payments(FullName, Email, Address, City, State, Zip, SupplementName, SupplementCatagory, NameonCard, CardNumber, ExpMonth, ExpYear, Cvv)
+        VALUES ('".$_POST['full_name']."', '".$_POST['email']."', '".$_POST['address']."', '".$_POST['city']."', '".$_POST['state']."', '".$_POST['zip']."', '".$_POST['supplement_name']."', '".$_POST['supplements']."', '".$_POST['name_on_card']."', '".$_POST['card_number']."', '".$_POST['exp_month']."', '".$_POST['exp_year']."', '".$_POST['cvv']."')";
 
             // Check connection
     if ($conn->connect_error) {
@@ -112,5 +113,5 @@ body {
 
 <!-----Remarks
 Username: S. M Himaz H. Mowlana
-Start Date: 14-09-2021
-End Date: 19-12-2021----->
+Start Date: 14-02-2023
+End Date: 08-04-2023----->
